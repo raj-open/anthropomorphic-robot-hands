@@ -6,7 +6,7 @@ A design optimization framework to derive optimal differential mechanism paramet
 
 In Figure 1, the design optimisation parameters of the differential mechanism are presented.
 
-![](../Media/whiffletreeOptimisation.png =100x)
+![Image missing](../Media/whiffletreeOptimisation.png)
 *Figure 1. Design optimisation parameters.*
 
 Given the actuator displacement $d_{a}$, the main bar radius $r_{m}$, the index bar radius $r_{rl}$, the length of tendon tendon from actuator to the main bar $l_{m}$, and the length of tendon tendon from the main bar to the index bar $l_{r}$, we obtain the configuration of the index bar $(x_{r}, y_{r})$ and of the main bar $(x_{mr},y_{mr})$ by solving a nonlinear equality constraint optimisation scheme. Next, we can derive the full configuration of the differential mechanism.
