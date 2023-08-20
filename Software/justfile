@@ -1,0 +1,95 @@
+# set shell := [ "bash", "-uc" ]
+_default:
+    @- just --unsorted --list
+menu:
+    @- just --unsorted --choose
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Justfile
+# For automation of workflows
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# VARIABLES
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+OS := if os_family() == "windows" { "windows" } else { "linux" }
+PATH_ROOT := justfile_directory()
+CURRENT_DIR := invocation_directory()
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Macros (private)
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+_create-file-if-not-exists fname:
+    @touch "{{fname}}";
+
+_create-folder-if-not-exists path:
+    @if ! [ -d "{{path}}" ]; then mkdir -p "{{path}}"; fi
+
+_delete-if-file-exists fname:
+    @if [ -f "{{fname}}" ]; then rm "{{fname}}"; fi
+
+_delete-if-folder-exists path:
+    @if [ -d "{{path}}" ]; then rm -rf "{{path}}"; fi
+
+_clean-all-files path pattern:
+    @find {{path}} -type f -name "{{pattern}}" -exec basename {} \; 2> /dev/null
+    @- find {{path}} -type f -name "{{pattern}}" -exec rm {} \; 2> /dev/null
+
+_clean-all-folders path pattern:
+    @find {{path}} -type d -name "{{pattern}}" -exec basename {} \; 2> /dev/null
+    @- find {{path}} -type d -name "{{pattern}}" -exec rm -rf {} \; 2> /dev/null
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# TARGETS
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# TARGETS: build
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+build:
+    @echo "Not yet implemented"
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# TARGETS: run
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+run:
+    @echo "Not yet implemented"
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# TARGETS: tests
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+tests:
+    @echo "Not yet implemented"
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# TARGETS: logging, session
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+create-log:
+    @# For logging purposes (since stdout is rechanneled):
+    @just _delete-if-file-exists "logs/debug.log"
+    @just _create-folder-if-not-exists "logs"
+    @just _create-file-if-not-exists "logs/debug.log"
+
+log text:
+    @echo "{{text}}" >> logs/debug.log
+
+echo-log:
+    @echo ""
+    @echo "Content of logs/debug.log:"
+    @echo "----------------"
+    @echo ""
+    @- cat logs/debug.log 2> /dev/null
+    @echo ""
+    @echo "----------------"
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# TARGETS: clean
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+clean:
+    @echo "Not yet implemented"

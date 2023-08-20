@@ -7,49 +7,23 @@
 # ================================================================
 
 !/README.md
-!/LICENCE
+!/justfile
 
 # ================================================================
-# PROJECT PARTS
+# PROJECT PARTS - PACKAGES
 # ================================================================
 
-!/Software
-
-!/Media
-!/Media/*.png
-
-!/Forces
-!/Forces/*/
-!/Forces/*/MATLAB
-!/Forces/*/MATLAB/data
-!/Forces/*/MATLAB/data/**/
-!/Forces/*/MATLAB/data/**/*.txt
-!/Forces/*/MATLAB/data/**/*.csv
-!/Forces/*/MATLAB/src
-!/Forces/*/MATLAB/src/**/
-!/Forces/*/MATLAB/src/**/*.m
-!/Forces/*/MATLAB/out
-!/Forces/*/MATLAB/out/*.fig
-!/Forces/*/MATLAB/out/*.png
-
-!/DesignOptimisation
-!/DesignOptimisation/README.md
-!/DesignOptimisation/MATLAB
-!/DesignOptimisation/MATLAB/data
-!/DesignOptimisation/MATLAB/data/**/
-!/DesignOptimisation/MATLAB/data/**/*.txt
-!/DesignOptimisation/MATLAB/data/**/*.csv
-!/DesignOptimisation/MATLAB/src/
-!/DesignOptimisation/MATLAB/src/**/
-!/DesignOptimisation/MATLAB/src/**/*.m
-
-!/CAD
-!/CAD/README.md
-!/CAD/**/
-!/CAD/**/*.STL
-!/CAD/**/*.SLDASM
-!/CAD/**/*.SLDPRT
-!/CAD/**/*.smg
+!/ROS
+!/ROS/*/
+!/ROS/*/config
+!/ROS/*/config/*.yaml
+!/ROS/*/launch
+!/ROS/*/launch/*.launch
+!/ROS/*/src
+!/ROS/*/src/**/
+!/ROS/*/src/**/*.py
+!/ROS/*/CMakeLists.txt
+!/ROS/*/package.xml
 
 # ================================================================
 # AUXLIARY
